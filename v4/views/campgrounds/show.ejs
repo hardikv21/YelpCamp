@@ -1,0 +1,23 @@
+<%- include ('../partials/header') %>
+
+<div class="row" id="show">
+  <div class="col">
+    <div class="thumbnail">
+      <img src="<%= foundCamp.image %>">
+      <div class="caption">
+        <h3><%= foundCamp.name %></h3>
+        <p><%- foundCamp.description %></p><br/>
+        <h4>Comments</h4>
+        <% foundCamp.comments.forEach(function(comment)
+        { %>
+            <p>
+                <strong><%= comment.author %></strong> - <%= comment.text %>
+            </p>
+        <% }) %>
+        <p><a href="/campgrounds/<%= foundCamp._id %>/comment/new" class="btn btn-default" role="button">Add a Comment</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include ('../partials/footer') %>
